@@ -1,0 +1,259 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Grid layout for the main container */
+.bd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Header styles */
+.l-header {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.nav__logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active-link {
+  color: #f9c74f;
+  border-bottom: 2px solid #f9c74f;
+}
+
+.nav__toggle {
+  display: none;
+}
+
+/* Main styles */
+.l-main {
+  padding: 2rem;
+  margin-top: 4rem; /* Adjust for fixed header */
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.home__data {
+  max-width: 50%;
+}
+
+.home__title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: #333;
+}
+
+.home__title-color {
+  color: #f9c74f;
+}
+
+.button {
+  background-color: #f9c74f;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+  background-color: #f7b500;
+  transform: scale(1.05);
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.about__container,
+.services__container,
+.workshops__container,
+.contact__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__text,
+.services__description,
+.workshops__description {
+  margin-bottom: 1rem;
+}
+
+.services__item,
+.workshops__item {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.services__item:hover,
+.workshops__item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+}
+
+.services__price,
+.workshops__price {
+  font-weight: bold;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__input {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.contact__input:focus {
+  border-color: #f9c74f;
+  outline: none;
+}
+
+.contact__input[type="textarea"] {
+  height: 150px;
+  resize: none;
+}
+
+.contact__info {
+  margin-top: 2rem;
+}
+
+.contact__info div {
+  margin-bottom: 1rem;
+}
+
+.contact__info-title {
+  font-weight: bold;
+}
+
+.contact__info-data {
+  display: block;
+}
+
+.contact__icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer__social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__social-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__social-icon:hover {
+  color: #f9c74f;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav__menu {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: block;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .home {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home__data {
+    max-width: 100%;
+  }
+}
