@@ -170,6 +170,23 @@
                     </div>
                 </div>
             </div>
+
+
+           <!-- Embedded Google Map -->
+        <div style="width: 100%; height: 400px; margin-top: 20px;">
+            <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                style="border:0" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.3781450859015!2d77.67238497454528!3d12.883388916807139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae131c1922f2a3%3A0x24f02919aa1f90e3!2sGravity%20Motors!5e0!3m2!1sen!2sin!4v1722153965672!5m2!1sen!2sin" 
+                allowfullscreen 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+
         </section>
     </main>
 
@@ -184,6 +201,28 @@
         <p class="footer__copy">&#169; 2024 Gravity Motors. All rights reserved.</p>
     </footer>
 
+    
+
+    <!-- Chat Box -->
+    <div class="chat-box">
+        <div class="chat-header">
+            <span>Customer Support</span>
+            <span class="chat-close" id="chat-close">x</span>
+        </div>
+        <div class="chat-content" id="chat-content">
+            <div class="message bot-message">Hello! How can I assist you today?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Type your message here...">
+            <button id="chat-send">Send</button>
+        </div>
+    </div>
+
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/chat.js"></script>
 </body>
 </html>
+
+    <!-- <script src="assets/js/main.js"></script>
+</body>
+</html> -->
