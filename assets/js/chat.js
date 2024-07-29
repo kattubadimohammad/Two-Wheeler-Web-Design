@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatInput = document.getElementById("chat-input");
     const chatSend = document.getElementById("chat-send");
     const chatClose = document.getElementById("chat-close");
+    const chatToggle = document.getElementById("chat-toggle");
 
     // Show the chat box after 5 seconds
     setTimeout(() => {
@@ -25,6 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Close the chat box
     chatClose.addEventListener("click", function () {
         chatBox.style.display = "none";
+    });
+
+    // Toggle chat box visibility
+    chatToggle.addEventListener("click", function () {
+        if (chatBox.style.display === "flex") {
+            chatBox.style.display = "none";
+        } else {
+            chatBox.style.display = "flex";
+        }
     });
 
     // Function to send messages

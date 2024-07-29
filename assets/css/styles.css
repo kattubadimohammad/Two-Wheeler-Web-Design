@@ -132,17 +132,49 @@ a {
 }
 
 /* Main title styling */
+/* Unique and attractive styles for the heading */
 .home__title {
-  font-size: 2.5rem; /* Adjust size as needed */
-  font-weight: bold;
-  text-align: center;
-  margin: 20px 0;
+  font-size: 2.5rem; /* Larger font size for prominence */
+  font-weight: 700; /* Bold font weight */
+  text-align: center; /* Center align text */
+  color: #333; /* Dark text color for contrast */
+  line-height: 1.2; /* Adjust line height for better spacing */
+  margin: 0;
+  position: relative; /* For positioning pseudo-elements */
+  padding: 1rem;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
 .home__title-color {
-  color: #ff7e5f; /* Highlight color for Gravity Motors */
-  font-style: italic;
+  color: #ff6f61; /* Vibrant color for emphasis */
+  background: linear-gradient(45deg, #ff6f61, #ff3d00); /* Gradient background */
+  -webkit-background-clip: text; /* Clip the gradient to text */
+  -webkit-text-fill-color: transparent; /* Make text color transparent */
+  position: relative; /* For pseudo-element positioning */
 }
+
+.home__title::before {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Position below the text */
+  left: 0;
+  width: 100%;
+  height: 4px; /* Underline height */
+  background: #ff6f61; /* Underline color */
+  transform: scaleX(0); /* Start with zero width */
+  transform-origin: bottom right; /* Scale from right to left */
+  transition: transform 0.3s ease; /* Smooth transition for underline */
+}
+
+.home__title:hover::before {
+  transform: scaleX(1); /* Expand underline on hover */
+}
+
+.home__title:hover {
+  color: #ff3d00; /* Change text color on hover */
+  transform: scale(1.05); /* Slightly enlarge heading on hover */
+}
+
 
 .home__subtitle {
   display: block; /* Ensure it's on a new line */
@@ -169,61 +201,111 @@ a {
 
 
 /* Hover effect for interaction */
+/* Home Section Styling */
+.home {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  text-align: center; /* Center text inside the section */
+  padding: 2rem; /* Add padding for spacing */
+  position: relative;
+}
+
+.home__content {
+  display: flex;
+  flex-direction: column; /* Stack title and button vertically */
+  align-items: center; /* Center items horizontally */
+  margin-bottom: 2rem; /* Space between content and image gallery */
+}
+
+.home__title {
+  font-size: 2.5rem; /* Adjust as needed */
+  margin-bottom: 1rem;
+}
+
+.home__title-color {
+  color: var(--highlight-color); /* Define your highlight color */
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
 .home__title-color:hover {
   transform: scale(1.1);
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Stronger shadow for a lifted effect */
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-
+/* Specific styles for the button following the <h1> element */
+/* Button Styles */
 .home__button {
   display: inline-block;
-  background-color: var(--first-color);
-  color: var(--white-color);
+  background: linear-gradient(45deg, #6a1b9a, #fbc02d); /* Gradient background from purple to gold */
+  color: #ffffff; /* White text color */
   padding: 1rem 2rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   font-weight: bold;
   text-transform: uppercase;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
   font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for a lifted effect */
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Smooth transition effects */
+  position: relative; /* For pseudo-element positioning */
+  overflow: hidden; /* Ensure pseudo-element does not overflow */
 }
 
+/* Hover Effect */
 .home__button:hover {
-  background-color: var(--first-color-light);
-  color: var(--first-color);
-  transform: translateY(-3px);
+  background: linear-gradient(45deg, #fbc02d, #6a1b9a); /* Inverted gradient on hover */
+  color: #ffffff; /* Keep text color white */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+  filter: brightness(1.1); /* Slightly brighten the button on hover */
 }
 
-.home__img {
-  max-width: 45%;
-  z-index: 1;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.home__img img {
-  width: 100%;
-  border-radius: .5rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.home__img img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-}
-
-/* Adding a parallax effect for the home section */
-.home::before {
-  content: "";
+/* Button Decorative Element */
+.home__button::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('assets/images/home-image.jpg') center center/cover no-repeat;
-  opacity: 0.3;
-  z-index: -1;
-  transform: translateZ(-1px) scale(1.5);
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 20%, transparent 40%);
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
 }
+
+/* Hover Effect for Decorative Element */
+.home__button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+
+
+
+.home__img-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Decreased spacing between images */
+  justify-content: center;
+  margin-top: 20px; /* Space between button and gallery */
+}
+
+.home__img-gallery img {
+  width: calc(33.333% - 16px); /* Adjusted width to fit better */
+  height: auto;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better visual effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+.home__img-gallery img:hover {
+  transform: scale(1.03); /* Slightly less enlargement on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Adjusted shadow on hover */
+}
+
+
 
 /*===== ABOUT =====*/
 .about {
@@ -298,53 +380,66 @@ a {
 
 
 /*===== SERVICES =====*/
+/* General styling for the services section */
 .services {
   padding: 2rem 1rem;
   text-align: center;
 }
 
+/* Container for service items */
 .services__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
+/* Service item styling */
 .services__content {
-  background-color: var(--first-color-light);
+  background-color: var(--first-color-light); /* Light background for default state */
   padding: 1.5rem;
   border-radius: .5rem;
   text-align: center;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Default shadow */
 }
 
+/* Hover effect for service items */
 .services__content:hover {
   transform: translateY(-10px);
-  background-color: var(--first-color);
+  background-color: #000000; /* Black background on hover */
+  color: #f5f5f5; /* Light white text on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Darker shadow on hover */
 }
 
+/* Icon styling */
 .services__icon {
   font-size: 3rem;
-  color: var(--first-color);
+  color: #ffffff; /* White color for the icons */
   margin-bottom: 1rem;
 }
 
+/* Title styling */
 .services__title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--first-color);
+  color: #ffffff; /* Pure white text color */
 }
 
+/* Description styling */
 .services__description {
   margin: .5rem 0 1rem;
   font-size: 1rem;
   line-height: 1.5;
+  color: #d3d3d3; /* Light white text color */
 }
 
+/* Price styling */
 .services__price {
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--first-color);
 }
+
 
 /*===== WORKSHOPS =====*/
 .workshops {
@@ -614,11 +709,10 @@ a {
   margin-top: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #d4edda;
-  color: #155724;
   font-size: 1rem;
   display: none; /* Initially hidden */
 }
+
 
 /* Add this CSS to the existing styles.css file */
 
@@ -729,3 +823,31 @@ a {
 .chat-open:hover {
   background: #006666; /* Darker Teal */
 }
+
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient from light blue to dark blue */
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 50px; /* Fully rounded button */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft shadow for a 3D effect */
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+  font-weight: bold;
+  font-size: 1rem;
+  z-index: 1000;
+}
+
+.chat-toggle:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff); /* Inverse gradient on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.chat-toggle:active {
+  transform: translateY(2px); /* Slightly moves button down on click */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Less shadow on active state */
+}
+
